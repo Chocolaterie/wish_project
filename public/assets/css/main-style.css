@@ -1,0 +1,14 @@
+body * {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.enidemo-content{
+    padding: 1rem;
+}
+
+.enidemo-footer {
+    padding: 5rem 10rem;
+    background-color: #3e3e3e;
+    color: #FFF;
+    text-align: center;
+}

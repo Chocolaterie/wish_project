@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Wish Show{% endblock %}
+
+{% block body %}
+
+<article class="uk-article">
+
+    <h1 class="uk-article-title"><a class="uk-link-reset" href="">{{ wish.title }}</a></h1>
+
+    <p class="uk-article-meta">Written by <a href="#">{{ wish.author }}</a> {{ wish.dateCreated }}</p>
+
+    <p class="uk-text-lead">{{ wish.description }}</p>
+
+</article>
+
+{% endblock %}

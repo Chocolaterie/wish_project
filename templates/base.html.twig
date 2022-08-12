@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		{# Encodage du site UTF8 #}
+		<meta charset="UTF-8">
+
+			{# Pour le responsive #}
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+
+			{# Favicon (fonction asset pour récuperer des ressources du site dans le dossier public) #}
+			<link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon.png') }}">
+
+			<title>
+				{# Block Title (à surcharger dans chaque page) #}
+				{% block title %}Welcome!{% endblock %}
+			</title>
+			{# Run `composer require symfony/webpack-encore-bundle`
+							           and uncomment the following Encore helpers to start using Symfony UX #}
+
+			{# Google Font CSS #}
+			<link rel="preconnect" href="https://fonts.googleapis.com">
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+			<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet"> 
+			
+			<!-- UIkit CSS -->
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.15.3/dist/css/uikit.min.css" />
+
+			{# CSS #}
+			<link href="{{ asset('assets/css/main-style.css') }}" rel="stylesheet"/>
+
+			{% block stylesheets %}
+				{#{{ encore_entry_link_tags('app') }}#}
+			{% endblock %}
+
+			{% block javascripts %}
+				{#{{ encore_entry_script_tags('app') }}#}
+			{% endblock %}
+		</head>
+		<body>
+		<!--HEADER-->
+		<header id="header" style="background-color: #fff;" data-uk-sticky="show-on-up: true; animation: uk-animation-fade; media: @l">
+			<div class="uk-container">
+				<nav id="navbar" data-uk-navbar="mode: click;">
+					<div class="uk-navbar-left nav-overlay uk-visible@m">
+						<ul class="uk-navbar-nav">
+							<li>
+								<a href="#" title="Subscribe">Subscribe</a>
+							</li>
+							<li>
+								<a href="#" title="Sign Up">Sign Up</a>
+							</li>
+						</ul>
+					</div>
+					<div class="uk-navbar-center nav-overlay">
+						<a class="uk-navbar-item uk-logo" href="#" title="Logo"><img src="img/n-logo.png" alt="Logo"></a>
+					</div>
+					<div class="uk-navbar-right nav-overlay">
+						<a class="uk-navbar-toggle uk-visible@m" data-uk-search-icon data-uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#"></a>
+						<div class="uk-navbar-item">
+							<a class="uk-visible@s" style="margin-right: 4px" href="#" data-uk-icon="facebook"></a>
+							<a class="uk-visible@s" style="margin-right: 4px" href="#" data-uk-icon="twitter"></a>
+							<a class="uk-visible@s" style="margin-right: 4px" href="#" data-uk-icon="instagram"></a>
+							<a class="uk-navbar-toggle uk-hidden@m" data-uk-toggle data-uk-navbar-toggle-icon href="#offcanvas-nav"></a>
+						</div>
+						
+					</div>
+					<div class="nav-overlay uk-navbar-left uk-flex-1" hidden>
+						<div class="uk-navbar-item uk-width-expand">
+							<form class="uk-search uk-search-navbar uk-width-1-1">
+								<input class="uk-search-input" type="search" placeholder="Search...">
+							</form>
+						</div>
+						<a class="uk-navbar-toggle" data-uk-close data-uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#"></a>
+					</div>
+				</nav>
+			</div>
+		</header>
+		<!--/HEADER-->
+		<!-- NAVIGATION -->
+		<div class="uk-container">
+			<nav class="nav-scroll">
+				<ul class="uk-subnav uk-flex uk-flex-between uk-flex-nowrap">
+					<li class="uk-active"><a href="#">World</a></li>
+					<li><a href="#">Politics</a></li>
+					<li><a href="#">Technology</a></li>
+					<li><a href="#">Trends</a></li>
+					<li><a href="#">Social Media</a></li>
+					<li><a href="#">People</a></li>
+					<li><a href="#">Science</a></li>
+					<li><a href="#">Opinion</a></li>
+					<li><a href="#">Culture</a></li>
+					<li><a href="#">Community</a></li>
+				</ul>
+			</nav>
+		</div>
+		<!-- /NAVIGATION -->
+		
+		<!--/CONTENT-->
+		<div class="uk-container" style="min-height: 400px">
+			{% block body %}{% endblock %}
+		</div>
+		
+		<!--FOOTER-->
+		<footer class="uk-section uk-section-small uk-section-muted">
+			<div class="uk-container">
+				<p class="uk-text-small uk-text-center">Copyright 2019 - <a href="https://github.com/zzseba78/Kick-Off">Created by KickOff</a> | Built with <a href="http://getuikit.com" title="Visit UIkit 3 site" target="_blank" data-uk-tooltip><span data-uk-icon="uikit"></span></a></p>
+			</div>
+		</footer>
+		<!--/FOOTER-->
+		<!-- OFFCANVAS -->
+		<div id="offcanvas-nav" data-uk-offcanvas="flip: true; overlay: true">
+			<div class="uk-offcanvas-bar uk-offcanvas-bar-animation uk-offcanvas-slide">
+				<button class="uk-offcanvas-close uk-close" type="button" data-uk-close></button>
+				<ul class="uk-nav uk-nav-default">
+					<li class="uk-active"><a href="#">Active</a></li>
+					<li class="uk-parent">
+						<a href="#">Parent</a>
+						<ul class="uk-nav-sub">
+							<li><a href="#">Sub item</a></li>
+							<li><a href="#">Sub item</a></li>
+						</ul>
+					</li>
+					<li class="uk-nav-header">Header</li>
+					<li><a href="#js-options"><span class="uk-margin-small-right" data-uk-icon="icon: table"></span> Item</a></li>
+					<li><a href="#"><span class="uk-margin-small-right" data-uk-icon="icon: thumbnails"></span> Item</a></li>
+					<li class="uk-nav-divider"></li>
+					<li><a href="#"><span class="uk-margin-small-right" data-uk-icon="icon: trash"></span> Item</a></li>
+				</ul>
+				<h3>Title</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+			</div>
+		</div>
+		<!-- /OFFCANVAS -->
+
+			<!-- UIkit JS -->
+			<script src="https://cdn.jsdelivr.net/npm/uikit@3.15.3/dist/js/uikit.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/uikit@3.15.3/dist/js/uikit-icons.min.js"></script>
+		</body>
+</html>
