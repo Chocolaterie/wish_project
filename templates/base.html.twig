@@ -80,16 +80,9 @@
 		<div class="uk-container">
 			<nav class="nav-scroll">
 				<ul class="uk-subnav uk-flex uk-flex-between uk-flex-nowrap">
-					<li class="uk-active"><a href="#">World</a></li>
-					<li><a href="#">Politics</a></li>
-					<li><a href="#">Technology</a></li>
-					<li><a href="#">Trends</a></li>
-					<li><a href="#">Social Media</a></li>
-					<li><a href="#">People</a></li>
-					<li><a href="#">Science</a></li>
-					<li><a href="#">Opinion</a></li>
-					<li><a href="#">Culture</a></li>
-					<li><a href="#">Community</a></li>
+					<li class="uk-active"><a href="{{ path('app_home') }}">Home</a></li>
+					<li class="uk-active"><a href="{{ path('app_wish_list') }}">Souhaits</a></li>
+					<li class="uk-active"><a href="{{ path('app_wish_create') }}">Creer un souhait</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -97,6 +90,18 @@
 		
 		<!--/CONTENT-->
 		<div class="uk-container" style="min-height: 400px">
+			{# Flash message #}
+			<div>
+			{% for label, values in app.flashes %}
+				{% for message in values %}
+				<div class="uk-alert-primary" uk-alert>
+					<a class="uk-alert-close" uk-close></a>
+					<p>{{ message }}</p>
+				</div>
+				{% endfor %}
+			{% endfor %}
+			</div>
+			{# Block body #}
 			{% block body %}{% endblock %}
 		</div>
 		

@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\WishRepository;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -18,6 +19,7 @@ class Wish
     private $id;
 
     /**
+     * @Assert\NotBlank(message="Le titre du souhait doit être renseigné")
      * @ORM\Column(type="string", length=250)
      */
     private $title;
