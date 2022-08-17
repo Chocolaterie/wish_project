@@ -43,13 +43,20 @@ class WishController extends AbstractController
     }
 
     /**
-     * @Route("/wish/create", name="app_wish_create")
+     * @Route("/wish/create/{id}", name="app_wish_create")
      */
-    public function wishCreate(Request $request): Response
+    public function wishCreate($id = -1, Request $request): Response
     {
         // Part : 01
-        // Wish vide
-        $wish =  new Wish();
+        // Si id < 1 = Par defaut Wish vide
+        $wish = new Wish();
+        // Mais si l'id > 0 : Récuperer un existant
+        if ($id > 0 ){
+            // Repo Wish
+            $repoWish = $this->getDoctrine()->getRepository(Wish::class); // Récuperer l'entity manager doctrine
+        
+            $wish = $repoWish->find($id);
+        }
 
         // Instancie le formulaire WishType avec un Wish vide
         $wishForm = $this->createForm(WishType::class, $wish);

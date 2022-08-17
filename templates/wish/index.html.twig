@@ -18,7 +18,7 @@
                         </div>
                         <div class="uk-width-expand">
                             <h3 class="uk-card-title uk-margin-remove-bottom">{{ wish.title }}</h3>
-                            <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">{{ wish.dateCreated }}</time></p>
+                            <p class="uk-text-meta uk-margin-remove-top">{{ wish.getCategory().getName() }}</p>
                         </div>
                     </div>
                 </div>
@@ -27,6 +27,7 @@
                 </div>
                 <div class="uk-card-footer">
                     <a href="{{ path("app_wish_show", { "id" : wish.getId() }) }}" class="uk-button uk-button-text">Read more</a>
+                    <br><br><a href="{{ path("app_wish_create", { "id" : wish.getId() }) }}" class="uk-button uk-button-default">Edit</a>
                 </div>
             </div>
         </div>

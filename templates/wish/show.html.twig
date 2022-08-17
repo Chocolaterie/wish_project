@@ -9,9 +9,11 @@
     <h1 class="uk-article-title"><a class="uk-link-reset" href="">{{ wish.title }}</a></h1>
 
     <p class="uk-article-meta">Written by <a href="#">{{ wish.author }}</a> {{ wish.dateCreated }}</p>
+    <p>Category : {{ wish.getCategory.getName() }}</p>
 
     <p class="uk-text-lead">{{ wish.description }}</p>
 
+    <a href="{{ path("app_wish_create", { "id" : wish.getId() }) }}" class="uk-button uk-button-default">Edit</a>
 </article>
 
 {% endblock %}

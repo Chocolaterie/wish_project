@@ -16,6 +16,7 @@ class WishType extends AbstractType
             ->add('title')
             ->add('description')
             ->add('author')
+            ->add('category')
             ->add('submit', SubmitType::class); // Ajouter le bouton submit
         ;
     }
